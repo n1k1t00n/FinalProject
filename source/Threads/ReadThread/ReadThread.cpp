@@ -88,7 +88,7 @@ void __fastcall ReadThread::Execute()
 			AnalysThreadObject->Send(&currentObject);
 			AnalysThreadObject->DataReadyEvent->SetEvent();
 
-			while(AnalysThreadObject->DataCopiedEvent->WaitFor(3000) != wrSignaled)
+			while(AnalysThreadObject->DataCopiedEvent->WaitFor(1000) != wrSignaled)
 			{ }
 
 			AnalysThreadObject->DataCopiedEvent->ResetEvent();
@@ -152,13 +152,13 @@ FSEnum __fastcall ReadThread::DetectFS(LPCWSTR device) {
     }
 	// Проверка сигнатуры FAT16
 	BYTE fat16Signature[] = { 0x46, 0x41, 0x54, 0x31, 0x36 };
-	if (memcmp(buffer + 35, fat16Signature, sizeof(fat16Signature)) == 0) {
+	if (memcmp(buffer + 0x36, fat16Signature, sizeof(fat16Signature)) == 0) {
 		DetectedFS = L"FAT16";
         return FSEnum::FAT16;
 	}
 	// Проверка сигнатуры FAT32
 	BYTE fat32Signature[] = { 0x46, 0x41, 0x54, 0x33, 0x32 };
-	if (memcmp(buffer + 52, fat32Signature, sizeof(fat32Signature)) == 0) {
+	if (memcmp(buffer + 0x52, fat32Signature, sizeof(fat32Signature)) == 0) {
 		DetectedFS = L"FAT32";
 		return FSEnum::FAT32;
 	}

@@ -20,7 +20,7 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 void __fastcall TForm1::StopButtonClick(TObject *Sender)
 {
     thrd->Terminate();
-	thrd->Free();
+	//thrd->Free();
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::Button3Click(TObject *Sender)

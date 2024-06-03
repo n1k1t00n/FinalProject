@@ -273,7 +273,7 @@ object Form1: TForm1
     Font.Style = []
     ParentFont = False
     TabOrder = 8
-    Text = '\\.\C:'
+    Text = '\\.\D:'
   end
   object Edit2: TEdit
     Left = 350

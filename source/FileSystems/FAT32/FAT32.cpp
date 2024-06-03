@@ -31,8 +31,8 @@ bool FAT32::ReadClusterSize()
 	else if (pBootRecord->countSectors32 != 0) {
 		countSectors = static_cast<int>(pBootRecord->countSectors32);
 	}
-	clusterSize = sectorSize * countSectors;
 	unsigned int classCoeff = static_cast<int>(pBootRecord->classCoeff);
+	clusterSize = sectorSize * classCoeff;
 	clusterCount = countSectors / classCoeff;
 	return true;
 }

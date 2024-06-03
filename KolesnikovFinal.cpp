@@ -5,17 +5,15 @@
 #include <tchar.h>
 //---------------------------------------------------------------------------
 USEFORM("MainUnit.cpp", Form1);
-i//---------------------------------------------------------------------------
 //---------------------------------------------------------------------------
-//---------------------------------------------------------------------------
-nt WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
+int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 {
 	try
 	{
 		Application->Initialize();
 		Application->MainFormOnTaskBar = true;
-		ApApplication->CreateForm(__classid(TForm1), &Form1);
-		plication->Run();
+		Application->CreateForm(__classid(TForm1), &Form1);
+		Application->Run();
 	}
 	catch (Exception &exception)
 	{

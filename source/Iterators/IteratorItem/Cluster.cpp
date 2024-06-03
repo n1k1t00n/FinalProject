@@ -18,7 +18,7 @@ FileTypeEnum Cluster::GetFileType()
 	else if (content[0] == 0x89 && content[1] == 0x50 && content[2] == 0x4E && content[3] == 0x47 && content[4] == 0x0D && content[5] == 0x0A && content[6] == 0x1A && content[7] == 0x0A) {
 		return  FileTypeEnum::Png;
 	}
-	else if (content[0] == 0x25 && content[1] == 0x50 && content[2] == 0x44 && content[3] == 0x46 && content[3] == 0x2D) {
+	else if (content[0] == 0x25 && content[1] == 0x50 && content[2] == 0x44 && content[3] == 0x46 && content[4] == 0x2D) {
 		return  FileTypeEnum::Pdf;
 	}
 	else if (content[0] == 0x53 && content[1] == 0x50 && content[2] == 0x30 && content[3] == 0x31) {
@@ -30,12 +30,12 @@ FileTypeEnum Cluster::GetFileType()
 
 Cluster::Cluster(BYTE* data, unsigned int num, unsigned int ClusterSize)
 {
-	content = new BYTE[60];
-	std::memcpy(content, data, sizeof(BYTE) * 60);
+	content = new BYTE[100];
+	std::memcpy(content, data, sizeof(BYTE) * 100);
     clusterNum = num;
 }
 void Cluster::SetContent(BYTE* data,unsigned int ClusterSize)
 {
-	content = new BYTE[60];
-	std::memcpy(content, data, sizeof(BYTE) * 60);
+	content = new BYTE[100];
+	std::memcpy(content, data, sizeof(BYTE) * 100);
 }

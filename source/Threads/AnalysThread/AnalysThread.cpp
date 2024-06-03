@@ -58,12 +58,12 @@ void __fastcall AnalysThread::Execute()
 	while(!Terminated)
 	{
 		// ждать когда будут подготовлены данные к след анализу
-		if(DataReadyEvent->WaitFor(INFINITE) == wrSignaled)
+		if(DataReadyEvent->WaitFor(1000) == wrSignaled)
 		{
 			// Скопировать данные об объекте в локальный буфе
 
 			DataReadyEvent->ResetEvent();
-			
+
   			Synchronize(Update);
 			InsertData();
 
